@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  latex:
+    image: paperist/alpine-texlive-ja
+    volumes:
+      - .:/workdir
+    working_dir: /workdir
+    command: 
+      - /bin/bash
+      - -c
+      - latexmk -pdfdvi -interaction=nonstopmode -f wiss_template.tex
