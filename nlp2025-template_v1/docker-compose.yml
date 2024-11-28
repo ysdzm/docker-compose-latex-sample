@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  latex:
+    image: paperist/alpine-texlive-ja
+    volumes:
+      - .:/workdir
+    working_dir: /workdir
+    command: 
+      - /bin/bash
+      - -c
+      - |
+        tlmgr install newtx inconsolata
+        latexmk -pdfdvi -interaction=nonstopmode -f nlp2025-sample.tex
