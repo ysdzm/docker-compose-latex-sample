@@ -10,5 +10,7 @@ services:
       - /bin/bash
       - -c
       - |
+        tlmgr update --self
         tlmgr install newtx inconsolata
+        latexmk -C
         latexmk -pdfdvi -interaction=nonstopmode -f nlp2025-sample.tex
